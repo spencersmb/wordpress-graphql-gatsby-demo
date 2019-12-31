@@ -36,6 +36,7 @@ const Layout = ({ children }) => {
   `)
 
   console.log("data", data)
+
   const pluginOptions = {
     wordPressUrl: `http://wpgraphql.local/`,
     uploadsUrl: `http://wpgraphql.local/wp-content/uploads/`,
