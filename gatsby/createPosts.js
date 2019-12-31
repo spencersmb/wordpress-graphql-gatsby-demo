@@ -14,8 +14,8 @@ module.exports = async ({ actions, graphql }, pluginOptions) => {
         nodes {
           id
           uri
-          postId
           title
+          content
         }
       }
     }
@@ -36,20 +36,20 @@ module.exports = async ({ actions, graphql }, pluginOptions) => {
         },
       } = data
 
-      const nodeIds = nodes.map(node => node.postId)
-      const blogTemplate = path.resolve(`./src/templates/blog.js`)
-      const blogPagePath = !variables.after ? `/` : `/page/${pageNumber}`
-
-      blogPages[pageNumber] = {
-        path: blogPagePath,
-        component: blogTemplate,
-        context: {
-          ids: nodeIds,
-          pageNumber: pageNumber,
-          hasNextPage: hasNextPage,
-        },
-        ids: nodeIds,
-      }
+      // const nodeIds = nodes.map(node => node.postId)
+      // const blogTemplate = path.resolve(`./src/templates/blog.js`)
+      // const blogPagePath = !variables.after ? `/` : `/page/${pageNumber}`
+      //
+      // blogPages[pageNumber] = {
+      //   path: blogPagePath,
+      //   component: blogTemplate,
+      //   context: {
+      //     ids: nodeIds,
+      //     pageNumber: pageNumber,
+      //     hasNextPage: hasNextPage,
+      //   },
+      //   ids: nodeIds,
+      // }
       nodes.map(post => {
         allPosts.push(post)
       })
